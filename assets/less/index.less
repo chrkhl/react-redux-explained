@@ -99,3 +99,31 @@ button {
     background: lighten(@brandColor, 20);
   }
 }
+
+.details-view {
+  
+  .person-profile {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    background-color: lighten(@brandColor, 10%);
+    padding: 6rem;
+    margin: 0 4rem;
+    
+    img.avatar {
+      width: 200;
+      height: 200;
+      border-radius: 20%;
+      border: 8px double darken(@brandColor, 20%);
+    }
+    
+    dl {
+      flex-grow: 1;
+      
+      dt { 
+        font-size: 2rem;
+        font-style: italic;
+      }
+    }
+  }
+}
