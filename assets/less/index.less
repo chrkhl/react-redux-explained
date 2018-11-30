@@ -1,0 +1,70 @@
+@brandColor: #3498db;
+@textColor: #000000;
+
+html {
+  font-size: 10px;
+  background: @brandColor;
+  padding: 20px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Amatic SC', cursive;
+  font-size: 3rem;
+  color: @textColor;
+}
+
+h1 {
+  text-align: center;
+  font-size: 10rem;
+  line-height: 1;
+  margin: 1rem 0;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+  .container {
+    width: 100%;
+    max-width: 1024px;
+  }
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.searchbar {
+  border: 1px solid darken(@brandColor, 10%);
+  border-radius: 1rem;
+  background-color: lighten(@brandColor, 20%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  padding: 2rem;
+  
+  input#searchTerm {
+    font-size: 2rem;
+    font-family: 'Amatic SC', cursive;
+    border: 1px solid darken(@brandColor, 10%);
+    margin-left: 3rem;
+    outline: none;
+    padding: 1rem;
+    flex-grow: 1;
+    background: lighten(@brandColor, 40%);
+    text-align: center;
+  }
+}
+
+
+p.result-count {
+  margin: 0;
+  text-align: right;
+  font-size: 2rem;
+}

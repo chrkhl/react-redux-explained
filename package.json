@@ -17,7 +17,9 @@
   },
   "devDependencies": {
     "@babel/core": "7.1.6",
+    "@babel/plugin-proposal-class-properties": "7.1.0",
     "less": "3.9.0",
-    "parcel-bundler": "1.10.3"
+    "parcel-bundler": "1.10.3",
+    "parcel-plugin-static-files-copy": "1.2.4"
   }
 }
