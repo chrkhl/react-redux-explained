@@ -58,4 +58,15 @@ class AwesomeRouter extends React.Component {
   }
 }
 
+const navigateToRoute = (route, ...props) => {
+  if (!route) throw new Error('no route specified');
+  
+  const newHash = props && props.length ?
+    `${route}/${props.join('/')}` :
+    route;
+    
+  window.location.hash = newHash;
+}
+
 export default AwesomeRouter;
+export { AwesomeRouter, navigateToRoute};

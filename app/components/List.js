@@ -5,7 +5,7 @@ import ListItem from './ListItem';
 const List = ({ list }) => (
   <ul>
     {
-      list.map(listItem => <ListItem key={ listItem.id } text={ listItem.name } />)
+      list.map(listItem => <ListItem key={ listItem.id } id={ listItem.id } text={ listItem.name } />)
     }
   </ul>
 );

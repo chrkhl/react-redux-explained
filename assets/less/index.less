@@ -68,3 +68,34 @@ p.result-count {
   text-align: right;
   font-size: 2rem;
 }
+
+ul {
+  width: 100%;
+  
+  li {
+    width: 50%;
+    margin: 1rem 0;
+    
+    div.list-item-content {      
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+button {
+  border: 1px solid lighten(@brandColor, 20%);
+  color: lighten(@brandColor, 20%);
+  background: transparent;
+  font-size: 2rem;
+  font-family: 'Amatic SC', cursive;
+  cursor: pointer;
+  height: 4rem;
+  
+  &:hover, &:active {
+    color: @textColor;
+    border-color: @brandColor;
+    background: lighten(@brandColor, 20);
+  }
+}
