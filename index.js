@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import AwesomeList from './app/containers/AwesomeList';
+import routeConfig from './app/routeConfig';
+import AwesomeRouter from './app/AwesomeRouter';
 
 ReactDOM.render(
   <div className='content'>
     <div className='container'>
-      <h1>Awesome List</h1>
-      <AwesomeList />
+      <AwesomeRouter config={ routeConfig } />
     </div>
   </div>,
   document.getElementById('app')

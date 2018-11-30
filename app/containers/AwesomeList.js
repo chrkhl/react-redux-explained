@@ -20,7 +20,12 @@ class AwesomeList extends React.Component {
   };
 
   render () {
-    return <FilterableList list={ this.state.data } />;
+    return (
+      <>
+        <h1>Awesome List</h1>
+        <FilterableList list={ this.state.data } />
+      </>
+    );
   }
 }
 
