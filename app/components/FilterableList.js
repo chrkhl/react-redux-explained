@@ -8,7 +8,7 @@ import { connect } from '../../lib/react-redux';
 
 class FilterableList extends React.Component {
   handleSearchTermChange = searchTerm => {
-    this.props.store.dispatch(changeSearchTerm(searchTerm));
+    this.props.changeSearchTerm(searchTerm);
   }
 
   render () {
@@ -34,5 +34,7 @@ const mapStateToProps = state => ({
   total: state.data.length
 });
 
-const connectedFilterableList = connect(mapStateToProps)(FilterableList);
+const actions = { changeSearchTerm };
+
+const connectedFilterableList = connect(mapStateToProps, actions)(FilterableList);
 export default connectedFilterableList;
