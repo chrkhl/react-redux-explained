@@ -50,10 +50,15 @@ const data = [{
     }
   }];
 
+store.dispatch({
+  type: 'receiveData',
+  data
+});
+
 ReactDOM.render(
   <div className='content'>
     <div className='container'>
-      <AwesomeRouter config={ routeConfig } data={ data } store={ store } />
+      <AwesomeRouter config={ routeConfig } store={ store } />
     </div>
   </div>,
   document.getElementById('app')

@@ -6,6 +6,7 @@
 // - returns copy of changed state
 
 const initialState = {
+  data: [],
   searchTerm: ''
 };
 
@@ -13,6 +14,11 @@ const awesomeReducer = (state = initialState, action) => {
   console.log('handling action', JSON.stringify(action));
   
   switch (action.type) {
+    case 'receiveData':
+      return {
+        ...state,
+        data: action.data
+      };
     case 'changeSearchTerm':
       return {
         ...state,

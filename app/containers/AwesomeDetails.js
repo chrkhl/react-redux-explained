@@ -2,7 +2,8 @@ import React from 'react';
 import { navigateToRoute } from '../AwesomeRouter';
 
 const AwesomeDetails = props => {
-  const personData = props.data.find(person => person.id === props.personId);
+  const data = props.store.getState().data;
+  const personData = data.find(person => person.id === props.personId);
   
   return (
     <div className='details-view'>

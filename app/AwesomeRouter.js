@@ -53,7 +53,7 @@ class AwesomeRouter extends React.Component {
     const Component = this.props.config.routes[this.state.currentRoute].component;
     
     return (
-      <Component {...this.state.currentRouteProps} data={ this.props.data } store={ this.props.store }/>
+      <Component {...this.state.currentRouteProps} store={ this.props.store }/>
     );
   }
 }
