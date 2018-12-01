@@ -7,7 +7,7 @@ class AwesomeList extends React.Component {
     return (
       <>
         <h1>Awesome List</h1>
-        <FilterableList store={ this.props.store } />
+        <FilterableList />
       </>
     );
   }

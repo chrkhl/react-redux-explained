@@ -7,6 +7,7 @@ import AwesomeRouter from './app/AwesomeRouter';
 import { createStore } from './lib/redux';
 import reducer from './app/awesomeReducer';
 import { receiveData } from './app/actions';
+import { Provider } from './lib/react-redux';
 
 const store = createStore(reducer);
 const data = [{
@@ -54,10 +55,12 @@ const data = [{
 store.dispatch(receiveData(data));
 
 ReactDOM.render(
-  <div className='content'>
-    <div className='container'>
-      <AwesomeRouter config={ routeConfig } store={ store } />
+  <Provider store={ store }>
+    <div className='content'>
+      <div className='container'>
+        <AwesomeRouter config={ routeConfig } />
+      </div>
     </div>
-  </div>,
+  </Provider>,
   document.getElementById('app')
 );
