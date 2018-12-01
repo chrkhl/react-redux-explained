@@ -6,6 +6,7 @@ import AwesomeRouter from './app/AwesomeRouter';
 
 import { createStore } from './lib/redux';
 import reducer from './app/awesomeReducer';
+import { receiveData } from './app/actions';
 
 const store = createStore(reducer);
 const data = [{
@@ -50,10 +51,7 @@ const data = [{
     }
   }];
 
-store.dispatch({
-  type: 'receiveData',
-  data
-});
+store.dispatch(receiveData(data));
 
 ReactDOM.render(
   <div className='content'>

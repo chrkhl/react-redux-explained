@@ -2,6 +2,7 @@ import React from 'react';
 
 import List from './List';
 import SearchBar from './SearchBar';
+import { changeSearchTerm } from '../actions';
 
 class FilterableList extends React.Component {
   state = {
@@ -23,10 +24,7 @@ class FilterableList extends React.Component {
   }
 
   handleSearchTermChange = searchTerm => {
-    this.props.store.dispatch({
-      type: 'changeSearchTerm',
-      searchTerm
-    });
+    this.props.store.dispatch(changeSearchTerm(searchTerm));
   }
 
   render () {
