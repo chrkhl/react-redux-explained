@@ -22,6 +22,13 @@ class FilterableList extends React.Component {
     this.setState({ searchTerm });
   }
 
+  handleSearchTermChange = searchTerm => {
+    this.props.store.dispatch({
+      type: 'changeSearchTerm',
+      searchTerm
+    });
+  }
+
   render () {
     const filteredList = this.state.searchTerm ?
       this.props.list.filter(listItem => listItem.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())) :
