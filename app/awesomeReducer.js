@@ -17,7 +17,7 @@ const awesomeReducer = (state = initialState, action) => {
     case 'otherThingHappens':
       return {
         ...state,
-        awesomeProperty: action.newValue;
+        awesomeProperty: action.newValue
       }
     default:
       return state;

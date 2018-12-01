@@ -4,6 +4,10 @@ import ReactDOM from 'react-dom';
 import routeConfig from './app/routeConfig';
 import AwesomeRouter from './app/AwesomeRouter';
 
+import { createStore } from './lib/redux';
+import reducer from './app/awesomeReducer';
+
+const store = createStore(reducer);
 const data = [{
     "id": "4711",
     "name": "Max Mustermann",
@@ -49,7 +53,7 @@ const data = [{
 ReactDOM.render(
   <div className='content'>
     <div className='container'>
-      <AwesomeRouter config={ routeConfig } data={ data } />
+      <AwesomeRouter config={ routeConfig } data={ data } store={ store } />
     </div>
   </div>,
   document.getElementById('app')
