@@ -5,20 +5,19 @@
 //    - action may have optional payload properties
 // - returns copy of changed state
 
-const initialState = {};
+const initialState = {
+  searchTerm: ''
+};
 
 const awesomeReducer = (state = initialState, action) => {
+  console.log('handling action', JSON.stringify(action));
+  
   switch (action.type) {
-    case 'somethingHappens':
+    case 'changeSearchTerm':
       return {
         ...state,
-        awesomeProperty: action.value
-      }
-    case 'otherThingHappens':
-      return {
-        ...state,
-        awesomeProperty: action.newValue
-      }
+        searchTerm: action.searchTerm
+      };
     default:
       return state;
   }
