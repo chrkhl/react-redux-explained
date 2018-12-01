@@ -8,12 +8,24 @@ class FilterableList extends React.Component {
     searchTerm: ''
   };
 
-  handleSearchTermChange = searchTerm => {
+  componentDidMount() {
+    this.unsubscribeFromStore = this.props.store.subscribe(this.deriveStateFromStore)
+    this.deriveStateFromStore();
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeFromStore();
+  }
+
+  deriveStateFromStore = () => {
+    const searchTerm = this.props.store.getState().searchTerm;
     this.setState({ searchTerm });
   }
 
   render () {
-    const filteredList = this.props.list.filter(listItem => listItem.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()));
+    const filteredList = this.state.searchTerm ?
+      this.props.list.filter(listItem => listItem.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())) :
+      this.props.list;
 
     return (
       <React.Fragment>
