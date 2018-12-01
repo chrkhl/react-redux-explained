@@ -12,23 +12,27 @@ class FilterableList extends React.Component {
   }
 
   render () {
-    const filteredList = this.props.appState.data.filter(listItem => listItem.name.toLowerCase().includes(this.props.appState.searchTerm.toLowerCase()));
-
     return (
       <React.Fragment>
         <SearchBar
-          searchTerm={ this.props.appState.searchTerm }
+          searchTerm={ this.props.searchTerm }
           onSearchTermChange={ this.handleSearchTermChange }
         />
         <p className='result-count'>
-          Treffer: { filteredList.length } / { this.props.appState.data.length }
+          Treffer: { this.props.filteredList.length } / { this.props.total }
         </p>
-        <List list={ filteredList } />
+        <List list={ this.props.filteredList } />
       </React.Fragment>
     );
 
   }
 }
 
-const connectedFilterableList = connect(FilterableList);
+const mapStateToProps = state => ({
+  searchTerm: state.searchTerm,
+  filteredList: state.data.filter(listItem => listItem.name.toLowerCase().includes(state.searchTerm.toLowerCase())),
+  total: state.data.length
+});
+
+const connectedFilterableList = connect(mapStateToProps)(FilterableList);
 export default connectedFilterableList;

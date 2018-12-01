@@ -3,30 +3,28 @@ import { navigateToRoute } from '../AwesomeRouter';
 import { connect } from '../../lib/react-redux';
 
 const AwesomeDetails = props => {
-  const personData = props.appState.data.find(person => person.id === props.personId);
-  
   return (
     <div className='details-view'>
       <h1>Awesome Details</h1>
       
-      { !personData &&
+      { !props.personData &&
         <p>Keine Informationen zu der Person mit ID { props.personId } gefunden!</p>
       }
       
-      { personData &&
+      { props.personData &&
         <div className='person-profile'>      
-          <img className='avatar' src={ personData.details.avatar } alt='avatar' />
+          <img className='avatar' src={ props.personData.details.avatar } alt='avatar' />
           <dl>
             <dt>Name</dt>
-            <dd>{ personData.name }</dd>
+            <dd>{ props.personData.name }</dd>
             <dt>Nummer</dt>
             <dd>{ props.personId }</dd>
             <dt>Alter</dt>
-            <dd>{ personData.details.age }</dd>
+            <dd>{ props.personData.details.age }</dd>
             <dt>Interessen</dt>
             <dd>
               <ul>
-                { personData.details.interests.map((interest, index) => <li key={index}>{interest}</li>)}
+                { props.personData.details.interests.map((interest, index) => <li key={index}>{interest}</li>)}
               </ul>
             </dd>
           </dl>
@@ -42,5 +40,9 @@ const AwesomeDetails = props => {
   );
 };
 
-const connectedAwesomeDetails = connect(AwesomeDetails);
+const mapStateToProps = (state, ownProps) => ({
+  personData: state.data.find(person => person.id === ownProps.personId)
+})
+
+const connectedAwesomeDetails = connect(mapStateToProps)(AwesomeDetails);
 export default connectedAwesomeDetails;
