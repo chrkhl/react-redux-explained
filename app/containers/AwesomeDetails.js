@@ -1,9 +1,9 @@
 import React from 'react';
 import { navigateToRoute } from '../AwesomeRouter';
+import { connect } from '../../lib/react-redux';
 
 const AwesomeDetails = props => {
-  const data = props.store.getState().data;
-  const personData = data.find(person => person.id === props.personId);
+  const personData = props.appState.data.find(person => person.id === props.personId);
   
   return (
     <div className='details-view'>
@@ -42,6 +42,5 @@ const AwesomeDetails = props => {
   );
 };
 
-
-
-export default AwesomeDetails;
+const connectedAwesomeDetails = connect(AwesomeDetails);
+export default connectedAwesomeDetails;

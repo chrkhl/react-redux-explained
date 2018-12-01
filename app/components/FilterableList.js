@@ -4,42 +4,24 @@ import List from './List';
 import SearchBar from './SearchBar';
 import { changeSearchTerm } from '../actions';
 
+import { connect } from '../../lib/react-redux';
+
 class FilterableList extends React.Component {
-  state = {
-    searchTerm: ''
-  };
-
-  componentDidMount() {
-    this.unsubscribeFromStore = this.props.store.subscribe(this.deriveStateFromStore)
-    this.deriveStateFromStore();
-  }
-
-  componentWillUnmount() {
-    this.unsubscribeFromStore();
-  }
-
-  deriveStateFromStore = () => {
-    const searchTerm = this.props.store.getState().searchTerm;
-    this.setState({ searchTerm });
-  }
-
   handleSearchTermChange = searchTerm => {
     this.props.store.dispatch(changeSearchTerm(searchTerm));
   }
 
   render () {
-    const filteredList = this.state.searchTerm ?
-      this.props.list.filter(listItem => listItem.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())) :
-      this.props.list;
+    const filteredList = this.props.appState.data.filter(listItem => listItem.name.toLowerCase().includes(this.props.appState.searchTerm.toLowerCase()));
 
     return (
       <React.Fragment>
         <SearchBar
-          searchTerm={ this.state.searchTerm }
+          searchTerm={ this.props.appState.searchTerm }
           onSearchTermChange={ this.handleSearchTermChange }
         />
         <p className='result-count'>
-          Treffer: { filteredList.length } / { this.props.list.length }
+          Treffer: { filteredList.length } / { this.props.appState.data.length }
         </p>
         <List list={ filteredList } />
       </React.Fragment>
@@ -48,4 +30,5 @@ class FilterableList extends React.Component {
   }
 }
 
-export default FilterableList;
+const connectedFilterableList = connect(FilterableList);
+export default connectedFilterableList;
