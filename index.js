@@ -14,11 +14,7 @@ import reduxThunk from './lib/redux-thunk';
 const createStoreWithMiddleware = applyMiddleware(reduxThunk, loggerMiddleware)(createStore);
 const store = createStoreWithMiddleware(reducer);
 
-fetch('data.json')
-  .then(response => response.json())
-  .then(data => {
-    receiveData(data)(store.dispatch);
-  })
+receiveData()(store.dispatch);
 
 ReactDOM.render(
   <Provider store={ store }>
