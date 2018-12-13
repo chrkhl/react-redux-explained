@@ -2,11 +2,17 @@ import React from 'react';
 
 import List from './List';
 import SearchBar from './SearchBar';
-import { changeSearchTerm } from '../actions';
+import { changeSearchTerm, receiveData } from '../actions';
 
 import { connect } from '../../lib/react-redux';
 
 class FilterableList extends React.Component {
+  componentDidMount() {
+    if(!this.props.hasData) {
+      this.props.receiveData();
+    }
+  }
+  
   handleSearchTermChange = searchTerm => {
     this.props.changeSearchTerm(searchTerm);
   }
@@ -28,13 +34,18 @@ class FilterableList extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapDispatchToProps = {
+  receiveData
+};
+
+const mapStateToProps = (state, ownProps) => ({
+  hasData: Boolean(state.data && state.data.length),
   searchTerm: state.searchTerm,
   filteredList: state.data.filter(listItem => listItem.name.toLowerCase().includes(state.searchTerm.toLowerCase())),
   total: state.data.length
 });
 
-const actions = { changeSearchTerm };
+const actions = { changeSearchTerm, receiveData };
 
 const connectedFilterableList = connect(mapStateToProps, actions)(FilterableList);
 export default connectedFilterableList;

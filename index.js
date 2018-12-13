@@ -6,15 +6,12 @@ import AwesomeRouter from './app/AwesomeRouter';
 
 import { applyMiddleware, createStore } from './lib/redux';
 import reducer from './app/awesomeReducer';
-import { receiveData } from './app/actions';
 import { Provider } from './lib/react-redux';
 import loggerMiddleware from './logger-middleware';
 import reduxThunk from './lib/redux-thunk';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk, loggerMiddleware)(createStore);
 const store = createStoreWithMiddleware(reducer);
-
-receiveData()(store.dispatch);
 
 ReactDOM.render(
   <Provider store={ store }>
