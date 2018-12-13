@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel ./index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watchAll",
+    "test:watch:coverage": "jest --coverage --watchAll"
   },
   "keywords": [],
   "author": "",
@@ -18,8 +21,27 @@
   "devDependencies": {
     "@babel/core": "7.1.6",
     "@babel/plugin-proposal-class-properties": "7.1.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "23.6.0",
+    "enzyme": "3.8.0",
+    "enzyme-adapter-react-16": "1.7.1",
+    "jest": "23.6.0",
     "less": "3.9.0",
     "parcel-bundler": "1.10.3",
     "parcel-plugin-static-files-copy": "1.2.4"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.js",
+      "!**/*.test.js",
+      "!lib/**/*.js",
+      "!dist/**/*.js",
+      "!coverage/**/*.js",
+      "!.cache/**/*.js"
+    ],
+    "testEnvironment": "jsdom",
+    "transform": {
+      ".+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest"
+    }
   }
 }
