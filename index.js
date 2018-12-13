@@ -4,12 +4,15 @@ import ReactDOM from 'react-dom';
 import routeConfig from './app/routeConfig';
 import AwesomeRouter from './app/AwesomeRouter';
 
-import { createStore } from './lib/redux';
+import { applyMiddleware, createStore } from './lib/redux';
 import reducer from './app/awesomeReducer';
 import { receiveData } from './app/actions';
 import { Provider } from './lib/react-redux';
+import loggerMiddleware from './logger-middleware';
 
-const store = createStore(reducer);
+const createStoreWithMiddleware = applyMiddleware(loggerMiddleware)(createStore);
+const store = createStoreWithMiddleware(reducer);
+
 const data = [{
     "id": "4711",
     "name": "Max Mustermann",
