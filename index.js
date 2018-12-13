@@ -9,8 +9,9 @@ import reducer from './app/awesomeReducer';
 import { receiveData } from './app/actions';
 import { Provider } from './lib/react-redux';
 import loggerMiddleware from './logger-middleware';
+import reduxThunk from './lib/redux-thunk';
 
-const createStoreWithMiddleware = applyMiddleware(loggerMiddleware)(createStore);
+const createStoreWithMiddleware = applyMiddleware(reduxThunk, loggerMiddleware)(createStore);
 const store = createStoreWithMiddleware(reducer);
 
 const data = [{
