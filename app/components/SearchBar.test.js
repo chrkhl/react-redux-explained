@@ -21,4 +21,20 @@ describe('SearchBar', () => {
     // or .props('myProp')
     expect(input.prop('value')).toBe(searchTerm);
   })
+  
+  it('calls onSearchTermChange when input value changed', () => {
+    const searchTerm = 'wisdom';
+    const newSearchTerm = 'with dom';
+    const onSearchTermChange = jest.fn();
+    
+    const wrapper = shallow(<SearchBar
+      searchTerm={ searchTerm }
+      onSearchTermChange={ onSearchTermChange }
+    />);
+    
+    const input = wrapper.find('input[type="text"]');
+    input.simulate('change', { target: { value: newSearchTerm }});
+    
+    expect(onSearchTermChange).toHaveBeenCalledWith(newSearchTerm);
+  })
 });
