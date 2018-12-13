@@ -56,7 +56,7 @@ const data = [{
     }
   }];
 
-store.dispatch(receiveData(data));
+receiveData(data)(store.dispatch);
 
 ReactDOM.render(
   <Provider store={ store }>
