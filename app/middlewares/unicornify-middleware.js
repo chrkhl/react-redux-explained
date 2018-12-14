@@ -1,4 +1,4 @@
-import { increaseUnicornCounter } from './app/actions';
+import { increaseUnicornCounter } from '../actions';
 
 const unicornWords = [
   'unicorn',

@@ -7,8 +7,8 @@ import AwesomeRouter from './app/AwesomeRouter';
 import { applyMiddleware, createStore } from './lib/redux';
 import reducer from './app/awesomeReducer';
 import { Provider } from './lib/react-redux';
-import loggerMiddleware from './logger-middleware';
-import unicornifyMiddleware from './unicornify-middleware';
+import loggerMiddleware from './app/middlewares/logger-middleware';
+import unicornifyMiddleware from './app/middlewares/unicornify-middleware';
 import reduxThunk from './lib/redux-thunk';
 
 const createStoreWithMiddleware = applyMiddleware(
