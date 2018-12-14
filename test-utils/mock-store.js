@@ -1,4 +1,4 @@
-const createStore = () => {
+const createStore = state => {
   let dispatchedActions = [];
   
   const registerAction = action => {
@@ -17,11 +17,17 @@ const createStore = () => {
   const mockReset = () => {
     dispatchedActions = [];
   }
+
+  const getState = () => state;
+  
+  const subscribe = () => {};
   
   return {
     dispatch,
     getActions,
-    mockReset
+    mockReset,
+    getState,
+    subscribe
   }
 }
 

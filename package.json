@@ -38,7 +38,8 @@
       "!lib/**/*.js",
       "!dist/**/*.js",
       "!coverage/**/*.js",
-      "!.cache/**/*.js"
+      "!.cache/**/*.js",
+      "!test-utils/**/*.js"
     ],
     "testEnvironment": "jsdom",
     "transform": {
