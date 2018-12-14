@@ -2,7 +2,7 @@ import reducer from './awesomeReducer';
 
 describe('awesomeReducer', () => {
   it('has the expected initial state', () => {
-    const expectedState = { data: [], searchTerm: '' };
+    const expectedState = { data: [], searchTerm: '', unicornCounter: 0 };
 
     const actualState = reducer(undefined, {});
     
@@ -10,13 +10,14 @@ describe('awesomeReducer', () => {
   });
 
   it('handles the receiveData action', () => {
-    const initialState = { data: [], searchTerm: '' };
+    const initialState = { data: [], searchTerm: '', unicornCounter: 0 };
     const expectedState = {
       data: [
         { id: 1, name: 'foo' },
         { id: 2, name: 'bar' }
       ],
-      searchTerm: ''
+      searchTerm: '',
+      unicornCounter: 0
     };
     const action = {
       type: 'receiveData',
@@ -32,10 +33,11 @@ describe('awesomeReducer', () => {
   });
 
   it('handles the changeSearchTerm action', () => {
-    const initialState = { data: [], searchTerm: '' };
+    const initialState = { data: [], searchTerm: '', unicornCounter: 0 };
     const expectedState = {
       data: [],
-      searchTerm: 'foo'
+      searchTerm: 'foo',
+      unicornCounter: 0
     };
     const action = {
       type: 'changeSearchTerm',

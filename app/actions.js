@@ -14,3 +14,7 @@ export const changeSearchTerm = searchTerm => ({
   type: 'changeSearchTerm',
   searchTerm
 });
+
+export const increaseUnicornCounter = () => ({
+  type: 'increaseUnicornCounter'
+});

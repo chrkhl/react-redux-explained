@@ -7,7 +7,8 @@
 
 const initialState = {
   data: [],
-  searchTerm: ''
+  searchTerm: '',
+  unicornCounter: 0
 };
 
 const awesomeReducer = (state = initialState, action) => {
@@ -24,6 +25,11 @@ const awesomeReducer = (state = initialState, action) => {
         ...state,
         searchTerm: action.searchTerm
       };
+    case 'increaseUnicornCounter':
+      return {
+        ...state,
+        unicornCounter: state.unicornCounter + 1
+      }
     default:
       return state;
   }

@@ -2,6 +2,7 @@ import React from 'react';
 
 import List from './List';
 import SearchBar from './SearchBar';
+import UnicornCounter from './UnicornCounter';
 import { changeSearchTerm, receiveData } from '../actions';
 
 import { connect } from '../../lib/react-redux';
@@ -20,6 +21,7 @@ class FilterableList extends React.Component {
   render () {
     return (
       <React.Fragment>
+        <UnicornCounter />
         <SearchBar
           searchTerm={ this.props.searchTerm }
           onSearchTermChange={ this.handleSearchTermChange }
