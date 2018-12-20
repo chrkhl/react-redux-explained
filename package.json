@@ -1,7 +1,7 @@
 {
   "name": "react-redux-explained",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is an example project to explain some internals of redux, react-redux and redux-thunk.",
   "main": "index.js",
   "scripts": {
     "start": "parcel ./index.html",
@@ -10,9 +10,9 @@
     "test:watch": "jest --watchAll",
     "test:watch:coverage": "jest --coverage --watchAll"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["react", "redux", "react-redux", "redux-thunk"],
+  "author": "Christian Kühl",
+  "license": "MIT",
   "dependencies": {
     "@babel/preset-react": "7.0.0",
     "react": "16.6.3",
