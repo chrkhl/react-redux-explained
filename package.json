@@ -10,26 +10,31 @@
     "test:watch": "jest --watchAll",
     "test:watch:coverage": "jest --coverage --watchAll"
   },
-  "keywords": ["react", "redux", "react-redux", "redux-thunk"],
+  "keywords": [
+    "react",
+    "redux",
+    "react-redux",
+    "redux-thunk"
+  ],
   "author": "Christian Kühl",
   "license": "MIT",
   "dependencies": {
-    "@babel/preset-react": "7.0.0",
-    "react": "16.6.3",
-    "react-dom": "16.6.3"
+    "@babel/preset-react": "7.6.3",
+    "react": "16.10.2",
+    "react-dom": "16.10.2"
   },
   "devDependencies": {
-    "@babel/core": "7.1.6",
-    "@babel/plugin-proposal-class-properties": "7.1.0",
+    "@babel/core": "7.6.4",
+    "@babel/plugin-proposal-class-properties": "7.5.5",
     "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "23.6.0",
-    "enzyme": "3.8.0",
-    "enzyme-adapter-react-16": "1.7.1",
-    "fetch-mock": "7.2.5",
-    "jest": "23.6.0",
-    "less": "3.9.0",
-    "parcel-bundler": "1.10.3",
-    "parcel-plugin-static-files-copy": "1.2.4"
+    "babel-jest": "24.9.0",
+    "enzyme": "3.10.0",
+    "enzyme-adapter-react-16": "1.15.1",
+    "fetch-mock": "7.5.1",
+    "jest": "24.9.0",
+    "less": "3.10.3",
+    "parcel-bundler": "1.12.4",
+    "parcel-plugin-static-files-copy": "2.2.1"
   },
   "jest": {
     "collectCoverageFrom": [
